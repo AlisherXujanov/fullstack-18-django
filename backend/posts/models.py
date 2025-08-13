@@ -11,3 +11,6 @@ class Posts(models.Model):
 
     def __str__(self):
         return f"Post of: {self.author.username}"
+
+    class Meta:
+        verbose_name_plural = "Posts"
