@@ -18,9 +18,7 @@ def get_posts(request):
 
 
 def create_post(request):
-    context = {
-        "form": PostsForm()
-    }
+    context = { "form": PostsForm() }
 
     if request.method == "POST":
         form = PostsForm(request.POST)
@@ -29,5 +27,24 @@ def create_post(request):
             return redirect('get_posts')
 
     return render(request, "create_post.html", context)
+
+
+def update_post(request, pk:int):
+    post = Posts.objects.get(pk=pk)
+    context = {"form": PostsForm(instance=post)}
+
+    if request.method == "POST":
+        form = PostsForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('get_posts')
+
+    return render(request, "update_post.html", context)
+
+
+def delete_post(request, pk:int):
+    post = Posts.objects.get(pk=pk)
+    post.delete()
+    return redirect("get_posts")
 
 

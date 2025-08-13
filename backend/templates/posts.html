@@ -11,6 +11,8 @@
     <ul>
         {% for post in posts %}
             <li>
+                <a href="{% url 'update_post' post.id %}">🖊️</a>
+                <a href="{% url 'delete_post' post.id %}">🗑️</a>
                 <h4>{{ post.title }}</h4>
                 <p>{{post.content}}</p>
             </li>                
