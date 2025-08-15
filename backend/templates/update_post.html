@@ -7,10 +7,5 @@
 {% block content %}
   <h1>Update Post</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-    
+  {% include "form_snippets.html" with form=form %}
 {% endblock %}
