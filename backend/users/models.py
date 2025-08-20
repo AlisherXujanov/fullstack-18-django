@@ -8,7 +8,7 @@ class Profile(models.Model):
     # Universally Unique ID
     # 8 4 4 8 8  # ex: qqqqqqqq-qqqq-qqqq-qqqqqqqq
     # ----------------------------------------------------------
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile')
     # ForeignKey   =>  one-to-one
     # ManyToMany   
     # ManyToOne    
