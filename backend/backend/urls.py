@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from users.views import home
 from posts.views import get_posts, create_post, update_post, delete_post
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +28,7 @@ urlpatterns = [
     path('create_post', create_post,  name='create_post'),
     path('update_post/<int:pk>', update_post,  name='update_post'),
     path('delete_post/<int:pk>', delete_post,  name='delete_post')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # https://www.unit-school.com/   ==  home-page
