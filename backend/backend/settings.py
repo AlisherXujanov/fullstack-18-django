@@ -66,6 +66,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SOCIALACCOUNT_PROVIDERS = {
+    # site for creating github auth service https://github.com/settings/developers
+    'github': {
+        'APP': {
+            'client_id': 'Ov23liXESu7oGscb9UFp',
+            'secret': '2c55a4f67aa33e92e55d3e69fdcd7c9e64209cf3'
+        }
+    }
+}
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
