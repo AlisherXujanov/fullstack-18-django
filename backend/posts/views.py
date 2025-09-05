@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Posts
 from .forms import PostsForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 
 # CRUD
 # - Create
@@ -9,12 +10,12 @@ from django.contrib.auth.decorators import login_required
 # - Update
 # - Delete
 
-# Create your views here.
-def get_posts(request):
-    context = {
-        "posts": Posts.objects.all()
-    }
-    return render(request, "posts.html", context)
+
+class PostsView(ListView):
+    model = Posts
+    template_name = "posts.html"
+    context_object_name = "posts"  # defaults to "object_list"
+
 
 
 @login_required
