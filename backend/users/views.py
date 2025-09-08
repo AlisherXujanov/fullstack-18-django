@@ -16,3 +16,16 @@ class ProfileDetailsView(DetailView):
 
     def get_queryset(self):
         return Profile.objects.filter(id=self.kwargs['pk'])
+
+
+
+def plus_counter(request, num):
+    # request.session['counter']
+    ...
+
+# in HTML  ->  request.session.counter
+
+
+def minus_counter(request, num):
+    # request.session['counter']
+    ...
