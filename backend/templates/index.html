@@ -6,4 +6,12 @@
 
 {% block content %}
   <h1>Unit School: Home-page</h1>
+
+  <hr />
+
+  <div class="container">
+    <h2>{{ request.session.counter }}</h2>
+    <a href="{% url 'minus_counter' %}" class="btn btn-outline-danger">-Decrement</a>
+    <a href="{% url 'plus_counter' %}" class="btn btn-outline-success">+Increment</a>
+  </div>
 {% endblock %}
