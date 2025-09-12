@@ -11,7 +11,6 @@ def create_profile(sender, instance, created, **kwargs):
     """This function will be called every time a new user is created."""
     if created:
         Profile.objects.create(user=instance)
-        instance.profile.save()
 
 
 
