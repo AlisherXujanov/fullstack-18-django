@@ -19,7 +19,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework import routers
+from posts import api_views
+
+
+router = routers.DefaultRouter()
+router.register(r'api/posts', api_views.PostsViewSet)
+
+
+
 urlpatterns = [
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('', include('posts.urls')),
