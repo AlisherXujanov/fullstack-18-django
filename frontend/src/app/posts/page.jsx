@@ -26,7 +26,8 @@ function Posts() {
             </button>
 
             {
-                showModal && <CreatePostModal closeModal={() => setShowModal(false)} />
+                showModal && 
+                <CreatePostModal closeModal={() => setShowModal(false)} />
             }
         </div>
     );

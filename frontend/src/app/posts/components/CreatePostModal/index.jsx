@@ -1,4 +1,5 @@
 "use client"
+import { BASE_URL } from "@/store"
 import "./style.scss"
 import { useState } from 'react'
 
@@ -9,9 +10,25 @@ function CreatePostModal({ closeModal }) {
         content: ''
     })
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-        console.log(form)
+        
+        try {
+            const response = await fetch(BASE_URL + "/api/posts/", {
+                method: "POST",
+                body: JSON.stringify(form),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            const data = await response.json()
+            console.log(data)
+            alert('Post created successfully')
+            closeModal()
+        } catch (e) {
+            console.log(e)
+            alert('Error creating post')
+        }
     }
     function handleChange(e) {
         setForm({
