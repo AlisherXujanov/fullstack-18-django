@@ -4,7 +4,7 @@ import "./style.scss"
 import { useState } from 'react'
 
 
-function CreatePostModal({ closeModal }) {
+function CreatePostModal({ closeModal, getPosts }) {
     const [form, setForm] = useState({
         title: '',
         content: ''
@@ -25,6 +25,7 @@ function CreatePostModal({ closeModal }) {
             console.log(data)
             alert('Post created successfully')
             closeModal()
+            await getPosts()
         } catch (e) {
             console.log(e)
             alert('Error creating post')

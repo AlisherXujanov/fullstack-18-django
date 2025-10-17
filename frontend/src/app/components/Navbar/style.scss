@@ -1,0 +1,20 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+
+    a {
+        text-decoration: none;
+        color: snow;
+        padding: 10px 0;
+        margin: 0 20px;
+        border-bottom: 1px solid transparent;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: orangered;
+            border-bottom: 1px solid orangered;
+        }
+    }
+}
