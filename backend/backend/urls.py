@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
+from django.conf import settings
+from django.conf.urls.static import static
+from users.views import *
 from posts.views import *
 
 urlpatterns = [
@@ -24,4 +27,7 @@ urlpatterns = [
     path("api/posts/", PostsAPIView.as_view(), name="posts-api"),
     path("api/posts/<int:pk>", PostsAPIView.as_view(), name="posts-api"),
     path("api/login/", login, name="login"),
-]
+    
+    path("api/profile/", ProfileAPIView.as_view(), name="profile-api"),
+    path("api/profile/<int:pk>", ProfileAPIView.as_view(), name="profile-api"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
